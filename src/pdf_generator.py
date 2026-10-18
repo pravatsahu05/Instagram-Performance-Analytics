@@ -98,7 +98,7 @@ def generate_static_charts(df: pd.DataFrame, charts_dir: str):
     ax2.tick_params(axis="y", labelcolor=color_line)
     ax2.grid(False)
 
-    plt.title("Monthly Posting Cadence vs Total Reach (Task 2)", fontsize=11, fontweight="bold", pad=10)
+    plt.title("Monthly Posting Cadence vs Total Reach", fontsize=11, fontweight="bold", pad=10)
     fig.tight_layout()
     chart1_path = os.path.join(charts_dir, "chart1_monthly_trend.png")
     plt.savefig(chart1_path)
@@ -118,7 +118,7 @@ def generate_static_charts(df: pd.DataFrame, charts_dir: str):
     ax.set_xticks(x)
     ax.set_xticklabels(pt_df["Post Type"], fontweight="bold")
     ax.set_ylabel("Average Volume", fontweight="bold")
-    ax.set_title("Cross-Format Metric Comparison by Post Type (Task 5)", fontsize=11, fontweight="bold", pad=10)
+    ax.set_title("Cross-Format Metric Comparison by Post Type", fontsize=11, fontweight="bold", pad=10)
     ax.legend(frameon=True, facecolor="white", loc="upper right")
     fig.tight_layout()
     chart2_path = os.path.join(charts_dir, "chart2_post_types.png")
@@ -132,7 +132,7 @@ def generate_static_charts(df: pd.DataFrame, charts_dir: str):
     bars = ax.bar(day_df["Day of Week"], day_df["Avg_Engagement_Rate"], color=colors_day, width=0.55)
     ax.set_ylabel("Avg Engagement Rate (%)", fontweight="bold")
     ax.set_ylim(17.5, 19.2)
-    ax.set_title("Engagement Rate Across Days of the Week (Task 6)", fontsize=11, fontweight="bold", pad=10)
+    ax.set_title("Engagement Rate Across Days of the Week", fontsize=11, fontweight="bold", pad=10)
     for bar in bars:
         h = bar.get_height()
         ax.text(bar.get_x() + bar.get_width()/2., h + 0.05, f"{h:.2f}%", ha="center", va="bottom", fontsize=8, fontweight="bold")
@@ -154,7 +154,7 @@ def generate_static_charts(df: pd.DataFrame, charts_dir: str):
     ax.set_yticklabels(labels, fontweight="bold")
     ax.set_xlabel("Total Audience Volume (Log Scale)", fontweight="bold")
     ax.set_xscale("log")
-    ax.set_title("Sugar Cosmetics 6-Stage Conversion Funnel (Task 7)", fontsize=11, fontweight="bold", pad=10)
+    ax.set_title("Sugar Cosmetics 6-Stage Conversion Funnel", fontsize=11, fontweight="bold", pad=10)
     for idx, (y, c) in enumerate(zip(y_pos, counts)):
         pct = funnel_df.loc[idx, "% of Impressions"]
         ax.text(c * 1.15, y, f"{c:,} ({pct}%)", va="center", fontsize=8, fontweight="bold")
@@ -183,7 +183,7 @@ def generate_static_charts(df: pd.DataFrame, charts_dir: str):
     ax.bar(hash_df["Hashtag"], hash_df["Avg_Engagement_Rate"], color="#E61B72", width=0.5)
     ax.set_ylabel("Avg Engagement Rate (%)", fontweight="bold")
     ax.set_ylim(18.0, 19.2)
-    ax.set_title("Hashtag Performance Comparison (Task 8)", fontsize=11, fontweight="bold", pad=10)
+    ax.set_title("Hashtag Performance Comparison", fontsize=11, fontweight="bold", pad=10)
     for idx, row in hash_df.iterrows():
         ax.text(idx, row["Avg_Engagement_Rate"] + 0.03, f"{row['Avg_Engagement_Rate']:.2f}%", ha="center", fontsize=8, fontweight="bold")
     fig.tight_layout()
@@ -451,10 +451,10 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 3: DESCRIPTIVE EDA & MONTHLY TREND (Tasks 1 & 2)
     # ==========================================
-    story.append(Paragraph("2. Account KPIs & Monthly Posting Trends (Tasks 1 & 2)", h1_style))
+    story.append(Paragraph("2. Account KPIs & Monthly Posting Trends", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
 
-    story.append(Paragraph("<b>Task 1: Account-Wide Key Performance Indicators:</b>", h2_style))
+    story.append(Paragraph("<b>Account-Wide Key Performance Indicators:</b>", h2_style))
     story.append(Paragraph(f"Sugar Cosmetics maintained an intense, high-frequency organic and paid presence totaling <b>{kpis['total_posts']:,} posts</b> across the 12-month observation window. The account generated <b>{kpis['total_impressions']:,} impressions</b> and engaged <b>{kpis['total_reach']:,} unique accounts</b>. Across all posts, the brand secured an average <b>Engagement Rate of {kpis['avg_engagement_rate']:.2f}%</b> (Median: {kpis['median_engagement_rate']:.2f}%), reflecting stable audience interaction.", body_style))
 
     kpi_summary_data = [
@@ -479,7 +479,7 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     story.append(kpi_tbl)
 
     story.append(Spacer(1, 10))
-    story.append(Paragraph("<b>Task 2: Monthly Posting Consistency & Reach Trajectory:</b>", h2_style))
+    story.append(Paragraph("<b>Monthly Posting Consistency & Reach Trajectory:</b>", h2_style))
     story.append(Paragraph("Sugar Cosmetics executed a remarkably consistent publishing calendar averaging ~3,800 to 4,200 posts per month. Content cadence remained robust through Q3 and Q4, with peak reach coinciding with major festive shopping and promotional campaigns.", body_style))
 
     story.append(Spacer(1, 4))
@@ -490,10 +490,10 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 4: CONTENT INTELLIGENCE & TOP POSTS (Tasks 3, 4, 5)
     # ==========================================
-    story.append(Paragraph("3. Content Format Intelligence & Top Posts (Tasks 3, 4, 5)", h1_style))
+    story.append(Paragraph("3. Content Format Intelligence & Top Posts", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
 
-    story.append(Paragraph("<b>Task 5: Post Type Performance Comparison:</b>", h2_style))
+    story.append(Paragraph("<b>Post Type Performance Comparison:</b>", h2_style))
     story.append(Paragraph("Evaluating content across the 4 major Instagram media formats reveals distinct operational strengths. While all formats are deployed evenly (~25% share each), <b>Reels</b> deliver the highest average engagement rate (18.61%), followed closely by <b>Stories</b> (18.60%). <b>Images</b> drive high initial reach, while <b>Videos</b> excel in watch-time retention.", body_style))
 
     pt_table_data = [
@@ -523,7 +523,7 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     story.append(Image(chart_paths["post_type"], width=500, height=200))
 
     story.append(Spacer(1, 8))
-    story.append(Paragraph("<b>Task 3 & 4: Top Posts by Likes vs. Hidden Gems by Engagement Rate:</b>", h2_style))
+    story.append(Paragraph("<b>Top Posts by Likes vs. Hidden Gems by Engagement Rate:</b>", h2_style))
     story.append(Paragraph("A critical discovery in social analytics is differentiating between <i>Brute-Force Reach</i> (posts with massive likes simply because of distribution) versus <i>High-Efficiency Content</i> ('Hidden Gems' that trigger intense engagement relative to their reach audience).", body_style))
 
     # Top 5 Likes vs Top 5 ER Table
@@ -566,17 +566,17 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 5: AUDIENCE TIMING & CONVERSION FUNNEL (Tasks 6 & 7)
     # ==========================================
-    story.append(Paragraph("4. Audience Timing & Conversion Funnel (Tasks 6 & 7)", h1_style))
+    story.append(Paragraph("4. Audience Timing & Conversion Funnel", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
 
-    story.append(Paragraph("<b>Task 6: Day of the Week Engagement Dynamics:</b>", h2_style))
+    story.append(Paragraph("<b>Day of the Week Engagement Dynamics:</b>", h2_style))
     story.append(Paragraph("Analyzing interaction trends across weekdays reveals that <b>Wednesday (18.63%)</b> and <b>Saturday (18.60%)</b> consistently achieve the highest engagement rates. Midweek posts benefit from high tutorial and informative engagement during evening hours, while weekends trigger peak product discovery and aspirational browsing. <b>Sunday (18.42%)</b> shows slightly lower relative interaction.", body_style))
 
     story.append(Spacer(1, 4))
     story.append(Image(chart_paths["day"], width=500, height=188))
 
     story.append(Spacer(1, 8))
-    story.append(Paragraph("<b>Task 7: The 6-Stage Instagram Conversion Funnel:</b>", h2_style))
+    story.append(Paragraph("<b>The 6-Stage Instagram Conversion Funnel:</b>", h2_style))
     story.append(Paragraph("To evaluate audience progression through the brand ecosystem, we model a complete 6-stage funnel: <i>Impressions → Reach → Likes → Comments → Shares → Saves</i>.", body_style))
 
     story.append(Spacer(1, 4))
@@ -609,10 +609,10 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 6: HASHTAG ECOSYSTEM & CAMPAIGNS (Task 8)
     # ==========================================
-    story.append(Paragraph("5. Hashtags & Campaign Archetypes (Task 8)", h1_style))
+    story.append(Paragraph("5. Hashtags & Campaign Archetypes", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
 
-    story.append(Paragraph("<b>Task 8: Strategic Hashtag Performance Evaluation:</b>", h2_style))
+    story.append(Paragraph("<b>Strategic Hashtag Performance Evaluation:</b>", h2_style))
     story.append(Paragraph("Sugar Cosmetics deploys 5 core thematic hashtags representing ethical values, brand identity, and beauty aesthetics: <code>#CrueltyFree</code>, <code>#MakeupGoals</code>, <code>#VeganBeauty</code>, <code>#BoldLooks</code>, and <code>#SugarCosmetics</code>. Analysis demonstrates that <b>#CrueltyFree</b> generates the highest total volume and top average engagement rate, indicating intense audience resonance with ethical and clean beauty messaging.", body_style))
 
     story.append(Spacer(1, 4))
@@ -730,10 +730,10 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 8: STRATEGIC RECOMMENDATIONS & ACTION PLAN (Task 10)
     # ==========================================
-    story.append(Paragraph("7. Strategic Recommendations & Action Plan (Task 10)", h1_style))
+    story.append(Paragraph("7. Strategic Recommendations & Action Plan", h1_style))
     story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
 
-    story.append(Paragraph("<b>Task 10: Data-Driven Strategic Recommendations:</b>", h2_style))
+    story.append(Paragraph("<b>Data-Driven Strategic Recommendations:</b>", h2_style))
     story.append(Paragraph("Based on empirical findings across 50,000 posts, the following strategic pillars are formulated for Sugar Cosmetics' executive social media team:", body_style))
 
     recs = [
@@ -802,7 +802,7 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
         [Paragraph("2. Proper Documentation & Insights", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Full README.md, comprehensive PDF report, data dictionary, and executive summary.", table_cell_left)],
         [Paragraph("3. Code Reusability / Modular Programming", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Dedicated src package with typed functions, parameter validation, and standalone execution scripts.", table_cell_left)],
         [Paragraph("4. Presentation & BI Web Dashboard", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Interactive Streamlit Cloud web application with dynamic filters, KPI cards, and custom brand theme.", table_cell_left)],
-        [Paragraph("5. Task Accomplishment (Tasks 1 to 10)", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("All 10 tasks from docx fully executed: KPIs, trends, top posts, post types, weekdays, funnel, tags, recommendations.", table_cell_left)],
+        [Paragraph("5. Full Objectives Accomplishment", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("All core objectives fully executed: KPIs, trends, top posts, post types, weekdays, funnel, tags, recommendations.", table_cell_left)],
         [Paragraph("6. Mock Interview Questions Proficiency", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("5 technical & business questions thoroughly answered with statistical and strategic depth.", table_cell_left)]
     ]
     rb_tbl = Table(rubric_data, colWidths=[160, 60, 284])

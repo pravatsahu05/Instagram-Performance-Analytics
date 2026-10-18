@@ -611,19 +611,19 @@ def main():
     # 5. INSTAGRAM PROFILE GRID TABS NAVIGATION
     # =========================================================
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "▦ OVERVIEW (Tasks 1, 2)",
-        "🎬 REELS & CONTENT (Tasks 3, 4, 5)",
-        "🏷️ CAMPAIGNS & TAGS (Task 8)",
-        "🎯 AUDIENCE & FUNNEL (Tasks 6, 7)",
+        "▦ OVERVIEW",
+        "🎬 REELS & CONTENT",
+        "🏷️ CAMPAIGNS & TAGS",
+        "🎯 AUDIENCE & FUNNEL",
         "🔬 STATS & EDA (ANOVA / Corr)",
-        "💡 STRATEGY & REPORT (Task 10 & PDF)"
+        "💡 STRATEGY & REPORT (PDF & Export)"
     ])
 
     # =========================================================
-    # TAB 1: OVERVIEW & CADENCE (Tasks 1 & 2)
+    # TAB 1: OVERVIEW & CADENCE
     # =========================================================
     with tab1:
-        st.markdown("### 📈 Monthly Publishing Cadence & Reach Dynamics (Task 2)")
+        st.markdown("### 📈 Monthly Publishing Cadence & Reach Dynamics")
         monthly_df = get_monthly_posting_trend(df)
         fig_monthly = plot_monthly_posting_trend(monthly_df)
         st.plotly_chart(fig_monthly, use_container_width=True)
@@ -719,10 +719,10 @@ def main():
             )
 
     # =========================================================
-    # TAB 2: REELS & CONTENT INTELLIGENCE (Tasks 3, 4, 5)
+    # TAB 2: REELS & CONTENT INTELLIGENCE
     # =========================================================
     with tab2:
-        st.markdown("### 🎬 Media Format Intelligence & Top Posts (Tasks 3, 4, 5)")
+        st.markdown("### 🎬 Media Format Intelligence & Top Posts")
         pt_df = get_post_type_performance(df)
 
         col_p1, col_p2 = st.columns([3, 2])
@@ -787,8 +787,8 @@ def main():
 
         view_mode = st.radio(
             "Select Ranking Criteria:",
-            ["🔥 Top 10 by Likes Received (Brute-Force Reach - Task 3)", 
-             "💎 Top 10 by Engagement Rate (High-Efficiency 'Hidden Gems' - Task 4)"],
+            ["🔥 Top 10 by Likes Received (Brute-Force Reach)", 
+             "💎 Top 10 by Engagement Rate (High-Efficiency 'Hidden Gems')"],
             horizontal=True
         )
 
@@ -859,10 +859,10 @@ def main():
                 )
 
     # =========================================================
-    # TAB 3: CAMPAIGNS & HASHTAGS (Task 8)
+    # TAB 3: CAMPAIGNS & HASHTAGS
     # =========================================================
     with tab3:
-        st.markdown("### 🏷️ Campaign Archetypes & Hashtag Performance Matrix (Task 8)")
+        st.markdown("### 🏷️ Campaign Archetypes & Hashtag Performance Matrix")
 
         col_h1, col_h2 = st.columns(2)
         with col_h1:
@@ -1002,14 +1002,14 @@ def main():
                 st.success("📉 **CAC Reduction:** Paid Meta Ads CAC = ₹480/customer. **PR Gifting UGC CAC = ₹265/customer**. Saves ₹215 per acquired customer!")
 
     # =========================================================
-    # TAB 4: AUDIENCE & FUNNEL (Tasks 6, 7)
+    # TAB 4: AUDIENCE & FUNNEL
     # =========================================================
     with tab4:
-        st.markdown("### 🎯 Audience Timing & The 6-Stage Conversion Funnel (Tasks 6 & 7)")
+        st.markdown("### 🎯 Audience Timing & The 6-Stage Conversion Funnel")
 
         col_d1, col_d2 = st.columns(2)
         with col_d1:
-            st.markdown("#### 📅 Day-of-Week Engagement Heat (Task 6)")
+            st.markdown("#### 📅 Day-of-Week Engagement Heat")
             day_df = get_day_of_week_analysis(df)
             fig_day = plot_day_of_week_analysis(day_df)
             st.plotly_chart(fig_day, use_container_width=True)
@@ -1039,7 +1039,7 @@ def main():
                 st.info("📅 **Weekly Revenue Calendar:** Mon/Tue: Product Education -> **Wed 7 PM: Flash Deal (Peak ER)** -> Thu/Fri: Customer Reviews -> **Sat 10 AM: Weekend Glam Restock (Peak ER)** -> Sun: Community UGC.")
 
         with col_d2:
-            st.markdown("#### 🎯 6-Stage Conversion Funnel (Task 7)")
+            st.markdown("#### 🎯 6-Stage Conversion Funnel")
             funnel_df = get_engagement_funnel_data(df)
             fig_funnel = plot_engagement_funnel(funnel_df)
             st.plotly_chart(fig_funnel, use_container_width=True)
@@ -1151,10 +1151,10 @@ def main():
             st.info("🔗 **Bio Link Elements:** Button 1: 'Find Your Perfect Lipstick Shade (Quiz)' -> Button 2: 'Shop Reels Look (Direct SKUs)' -> Button 3: 'Store Locator (Nearby Sugar Kiosk)' -> Conversion Rate: **+42% over standard homepage link**.")
 
     # =========================================================
-    # TAB 6: STRATEGY, REPORT & DOWNLOADS (Task 10 & PDF)
+    # TAB 6: STRATEGY, REPORT & DOWNLOADS
     # =========================================================
     with tab6:
-        st.markdown("### 💡 Strategic Playbook & Capstone Deliverables (Task 10)")
+        st.markdown("### 💡 Strategic Playbook & Capstone Deliverables")
 
         col_r1, col_r2 = st.columns([3, 2])
         with col_r1:

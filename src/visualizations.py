@@ -160,11 +160,11 @@ def plot_monthly_posting_trend(monthly_df: pd.DataFrame) -> go.Figure:
             "showgrid": False
         }
     )
-    return apply_theme(fig, "📅 Monthly Cadence & Reach Velocity (Task 2)", height=430)
+    return apply_theme(fig, "📅 Monthly Cadence & Reach Velocity", height=430)
 
 
 def plot_top_posts_bar(top_df: pd.DataFrame, metric: str = "Likes") -> go.Figure:
-    """Task 3 & 4: Top Posts with Instagram Sunset Gradient bars."""
+    """Top Posts with Instagram Sunset Gradient bars."""
     sorted_df = top_df.sort_values(by=metric, ascending=True).copy()
     label_col = sorted_df["Post_ID"] + "  (" + sorted_df["Post Type"] + ")"
     
@@ -199,7 +199,7 @@ def plot_top_posts_bar(top_df: pd.DataFrame, metric: str = "Likes") -> go.Figure
 
 
 def plot_post_type_comparison(post_type_df: pd.DataFrame) -> go.Figure:
-    """Task 5: Post Type Comparison in Instagram styling."""
+    """Post Type Comparison in Instagram styling."""
     fig = go.Figure()
 
     metrics = [
@@ -220,11 +220,11 @@ def plot_post_type_comparison(post_type_df: pd.DataFrame) -> go.Figure:
         ))
 
     fig.update_layout(barmode="group")
-    return apply_theme(fig, "🎬 Format Comparison: Likes, Comments, Saves & Shares (Task 5)", height=420)
+    return apply_theme(fig, "🎬 Format Comparison: Likes, Comments, Saves & Shares", height=420)
 
 
 def plot_post_type_rates(post_type_df: pd.DataFrame) -> go.Figure:
-    """Task 5: Post Type Engagement Rate comparison."""
+    """Post Type Engagement Rate comparison."""
     fig = go.Figure()
 
     colors = [POST_TYPE_COLORS.get(pt, INSTAGRAM_COLORS["gradient_pink"]) for pt in post_type_df["Post Type"]]
@@ -243,7 +243,7 @@ def plot_post_type_rates(post_type_df: pd.DataFrame) -> go.Figure:
 
 
 def plot_day_of_week_analysis(day_df: pd.DataFrame) -> go.Figure:
-    """Task 6: Day of Week Engagement Heatmap / Bar."""
+    """Day of Week Engagement Heatmap / Bar."""
     fig = go.Figure()
 
     colors_day = [
@@ -285,11 +285,11 @@ def plot_day_of_week_analysis(day_df: pd.DataFrame) -> go.Figure:
             "range": [18000, 21000]
         }
     )
-    return apply_theme(fig, "📅 Day-of-Week Engagement & Reach Patterns (Task 6)", height=410)
+    return apply_theme(fig, "📅 Day-of-Week Engagement & Reach Patterns", height=410)
 
 
 def plot_engagement_funnel(funnel_df: pd.DataFrame) -> go.Figure:
-    """Task 7: 6-Stage Conversion Funnel with Instagram Gradient."""
+    """6-Stage Conversion Funnel with Instagram Gradient."""
     funnel_colors = [
         "#833AB4",  # Impressions (Violet)
         "#C13584",  # Reach (Magenta)
@@ -311,11 +311,11 @@ def plot_engagement_funnel(funnel_df: pd.DataFrame) -> go.Figure:
         connector={"line": {"color": "rgba(255, 255, 255, 0.35)", "width": 1.5}}
     ))
 
-    return apply_theme(fig, "🎯 Instagram Audience Engagement Funnel (Task 7)", height=450)
+    return apply_theme(fig, "🎯 Instagram Audience Engagement Funnel", height=450)
 
 
 def plot_hashtag_comparison(hashtag_df: pd.DataFrame) -> go.Figure:
-    """Task 8: Hashtag Performance Matrix."""
+    """Hashtag Performance Matrix."""
     fig = go.Figure()
 
     fig.add_trace(go.Bar(
@@ -333,7 +333,7 @@ def plot_hashtag_comparison(hashtag_df: pd.DataFrame) -> go.Figure:
     fig.update_layout(
         yaxis={"title": "Average Engagement Rate (%)", "range": [17.5, 19.5]}
     )
-    return apply_theme(fig, "🔖 Hashtag Engagement Efficiency (Task 8)", height=390)
+    return apply_theme(fig, "🔖 Hashtag Engagement Efficiency", height=390)
 
 
 def plot_campaign_performance(camp_df: pd.DataFrame) -> go.Figure:
