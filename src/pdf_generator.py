@@ -68,8 +68,20 @@ class NumberedCanvas(canvas.Canvas):
             self.setLineWidth(0.75)
             self.line(54, 45, 558, 45)
 
+            self.setFont("Helvetica-Bold", 7.2)
+            self.setFillColor(colors.HexColor("#E61B72"))
+            self.drawString(54, 32, "Live App: instagram-performance-analytics-pravatsahu05.streamlit.app")
+
+            self.setFont("Helvetica", 7.2)
+            self.setFillColor(colors.HexColor("#64748B"))
+            self.drawString(290, 32, "|")
+
+            self.setFont("Helvetica-Bold", 7.2)
+            self.setFillColor(colors.HexColor("#0284C7"))
+            self.drawString(298, 32, "GitHub: pravatsahu05/Instagram-Performance-Analytics")
+
             self.setFont("Helvetica", 8)
-            self.drawString(54, 32, "Confidential - Business Intelligence Capstone Project")
+            self.setFillColor(colors.HexColor("#64748B"))
             page_text = f"Page {self._pageNumber} of {page_count}"
             self.drawRightString(558, 32, page_text)
 
@@ -338,21 +350,22 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # ==========================================
     # PAGE 1: COVER PAGE
     # ==========================================
-    story.append(Spacer(1, 40))
-    story.append(Paragraph("PROJECT CAPSTONE REPORT", ParagraphStyle("CoverOverline", fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.HexColor("#E61B72"), spaceAfter=10)))
+    story.append(Spacer(1, 18))
+    story.append(Paragraph("PROJECT CAPSTONE REPORT", ParagraphStyle("CoverOverline", fontName="Helvetica-Bold", fontSize=10, leading=12, textColor=colors.HexColor("#E61B72"), spaceAfter=8)))
     story.append(Paragraph("Instagram Performance Analytics<br/>for Sugar Cosmetics", title_style))
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
     story.append(Paragraph("A Data-Driven Business Intelligence, Content Strategy, and Audience Conversion Study", subtitle_style))
-    story.append(Spacer(1, 15))
-    story.append(HRFlowable(width="100%", thickness=3, color=colors.HexColor("#E61B72"), spaceBefore=5, spaceAfter=25))
+    story.append(Spacer(1, 10))
+    story.append(HRFlowable(width="100%", thickness=3, color=colors.HexColor("#E61B72"), spaceBefore=4, spaceAfter=14))
 
     # Meta box
     meta_data = [
         [Paragraph("<b>Domain:</b>", body_style), Paragraph("Digital Marketing | Social Media Analytics | Business Intelligence", body_style)],
         [Paragraph("<b>Target Brand:</b>", body_style), Paragraph("Sugar Cosmetics (D2C Beauty & Cosmetics Leader)", body_style)],
+        [Paragraph("<b>Live Web App:</b>", body_style), Paragraph("<a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><b><u>https://instagram-performance-analytics-pravatsahu05.streamlit.app/</u></b></font></a>", body_style)],
+        [Paragraph("<b>GitHub Repo:</b>", body_style), Paragraph("<a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><b><u>https://github.com/pravatsahu05/Instagram-Performance-Analytics</u></b></font></a>", body_style)],
         [Paragraph("<b>Dataset Scale:</b>", body_style), Paragraph("50,000 Verified Post Records (1 Full Year: Apr 2024 – Apr 2025)", body_style)],
         [Paragraph("<b>Technology Stack:</b>", body_style), Paragraph("Python 3.12, Streamlit Cloud, Plotly, Pandas, Scipy, ReportLab", body_style)],
-        [Paragraph("<b>Primary Application:</b>", body_style), Paragraph("Interactive Streamlit Cloud Web Application (Alternative to Tableau)", body_style)],
         [Paragraph("<b>Report Date:</b>", body_style), Paragraph(datetime.now().strftime("%B %d, %Y"), body_style)],
         [Paragraph("<b>Evaluation Standard:</b>", body_style), Paragraph("Zen Capstone Live Evaluation Criteria (60/60 Marks)", body_style)]
     ]
@@ -361,12 +374,12 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
         ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F8FAFC")),
         ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#E2E8F0")),
         ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#E2E8F0")),
-        ("PADDING", (0, 0), (-1, -1), 7),
+        ("PADDING", (0, 0), (-1, -1), 5.5),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE")
     ]))
     story.append(meta_table)
 
-    story.append(Spacer(1, 30))
+    story.append(Spacer(1, 14))
     
     # Executive Highlights Card
     exec_kpi_data = [
@@ -388,14 +401,14 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
         ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#FFF1F2")),
         ("BOX", (0, 0), (-1, -1), 1.5, colors.HexColor("#FDA4AF")),
         ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#FECDD3")),
-        ("PADDING", (0, 0), (-1, -1), 8),
+        ("PADDING", (0, 0), (-1, -1), 6.5),
         ("ALIGN", (0, 0), (-1, -1), "CENTER"),
         ("VALIGN", (0, 0), (-1, -1), "MIDDLE")
     ]))
     story.append(exec_kpi_table)
 
-    story.append(Spacer(1, 25))
-    story.append(Paragraph("<b>Deliverable Scope:</b> This document accompanies the deployed <b>Streamlit Cloud Interactive Application</b>, providing executive stakeholders, marketing strategists, and capstone evaluators with the complete analytical methodology, exploratory discoveries, inferential statistical verifications, and actionable brand recommendations.", body_style))
+    story.append(Spacer(1, 14))
+    story.append(Paragraph("<b>Deliverable Scope:</b> This document accompanies the deployed <a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><u><b>Streamlit Cloud Interactive Application</b></u></font></a> and open-source <a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><u><b>GitHub Source Repository</b></u></font></a>, providing executive stakeholders, marketing strategists, and capstone evaluators with the complete analytical methodology, exploratory discoveries, inferential statistical verifications, and actionable brand recommendations.", body_style))
 
     story.append(PageBreak())
 
@@ -403,14 +416,31 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
     # PAGE 2: PROJECT OVERVIEW & CAPSTONE GUIDELINE SECTION
     # ==========================================
     story.append(Paragraph("1. Project Architecture & Orientation", h1_style))
-    story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=10))
+    story.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor("#CBD5E1"), spaceBefore=2, spaceAfter=8))
+
+    # Live Project Resource Links Bar
+    proj_links_data = [
+        [
+            Paragraph("<b>🌐 Live Web App:</b> <a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><u><b>https://instagram-performance-analytics-pravatsahu05.streamlit.app/</b></u></font></a>", body_style),
+            Paragraph("<b>📂 GitHub Code:</b> <a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><u><b>pravatsahu05/Instagram-Performance-Analytics</b></u></font></a>", body_style)
+        ]
+    ]
+    proj_links_table = Table(proj_links_data, colWidths=[252, 252])
+    proj_links_table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#EFF6FF")),
+        ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#BFDBFE")),
+        ("PADDING", (0, 0), (-1, -1), 4),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE")
+    ]))
+    story.append(proj_links_table)
+    story.append(Spacer(1, 6))
 
     # Strict compliance with Capstone Guideline:
     story.append(Paragraph("<b>1.1 Domain Introduction (3 Lines):</b>", h2_style))
     story.append(Paragraph("The digital beauty and cosmetics industry relies aggressively on social media analytics to optimize consumer acquisition, engagement, and brand affinity. In an omnichannel retail landscape, platforms like Instagram serve as primary visual discovery funnels that convert awareness into loyal brand advocates. Systematically tracking metrics across post formats, hashtags, and release cadences enables brands to maximize organic reach and return on content investment.", body_style))
 
     story.append(Paragraph("<b>1.2 Project Introduction (2 Lines):</b>", h2_style))
-    story.append(Paragraph("This project conducts an exhaustive performance evaluation of Sugar Cosmetics' Instagram account across 50,000 posts spanning April 2024 to April 2025. It deploys an enterprise-grade Streamlit Cloud web application and comprehensive reporting framework to transform raw social data into high-conviction marketing strategies.", body_style))
+    story.append(Paragraph("This project conducts an exhaustive performance evaluation of Sugar Cosmetics' Instagram account across 50,000 posts spanning April 2024 to April 2025. It deploys an enterprise-grade <a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><u><b>Streamlit Cloud Web Application</b></u></font></a> and comprehensive reporting framework backed by the open-source <a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><u><b>GitHub Repository</b></u></font></a> to transform raw social data into high-conviction marketing strategies.", body_style))
 
     story.append(Paragraph("<b>1.3 Objective of the Project (2 Lines):</b>", h2_style))
     story.append(Paragraph("To rigorously evaluate engagement, reach, and conversion dynamics across post types, campaigns, weekdays, and hashtags to identify content drivers and eliminate engagement bottlenecks. To deliver an interactive BI tool and data-backed tactical playbook for executive marketing decision-makers.", body_style))
@@ -801,7 +831,7 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
         [Paragraph("1. Code Quality & Data Transformations", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Clean modular architecture (data_loader.py, analytics.py, visualizations.py). Zero nulls, vectorized operations.", table_cell_left)],
         [Paragraph("2. Proper Documentation & Insights", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Full README.md, comprehensive PDF report, data dictionary, and executive summary.", table_cell_left)],
         [Paragraph("3. Code Reusability / Modular Programming", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Dedicated src package with typed functions, parameter validation, and standalone execution scripts.", table_cell_left)],
-        [Paragraph("4. Presentation & BI Web Dashboard", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Interactive Streamlit Cloud web application with dynamic filters, KPI cards, and custom brand theme.", table_cell_left)],
+        [Paragraph("4. Presentation & BI Web Dashboard", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("Interactive Streamlit Cloud web application with dynamic filters, KPI cards, and custom brand theme.<br/>• <b>Live App:</b> <a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><u><b>https://instagram-performance-analytics-pravatsahu05.streamlit.app/</b></u></font></a><br/>• <b>GitHub:</b> <a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><u><b>https://github.com/pravatsahu05/Instagram-Performance-Analytics</b></u></font></a>", table_cell_left)],
         [Paragraph("5. Full Objectives Accomplishment", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("All core objectives fully executed: KPIs, trends, top posts, post types, weekdays, funnel, tags, recommendations.", table_cell_left)],
         [Paragraph("6. Mock Interview Questions Proficiency", table_cell_left), Paragraph("10 / 10", table_cell_style), Paragraph("5 technical & business questions thoroughly answered with statistical and strategic depth.", table_cell_left)]
     ]
@@ -839,7 +869,24 @@ def build_pdf_report(output_pdf_path: str = None) -> str:
         story.append(Paragraph(f"<b>{q}</b>", ParagraphStyle("QA_Q", fontName="Helvetica-Bold", fontSize=9, leading=12, textColor=colors.HexColor("#E61B72"), spaceBefore=4)))
         story.append(Paragraph(a, ParagraphStyle("QA_A", fontName="Helvetica", fontSize=8.5, leading=12, textColor=colors.HexColor("#334155"), spaceAfter=4)))
 
-    story.append(Spacer(1, 10))
+    story.append(Spacer(1, 8))
+    end_links_data = [
+        [
+            Paragraph("<b>🚀 Production Web Application:</b><br/><a href='https://instagram-performance-analytics-pravatsahu05.streamlit.app/'><font color='#E61B72'><b><u>https://instagram-performance-analytics-pravatsahu05.streamlit.app/</u></b></font></a>", body_style),
+            Paragraph("<b>💻 Open-Source GitHub Repository:</b><br/><a href='https://github.com/pravatsahu05/Instagram-Performance-Analytics'><font color='#0284C7'><b><u>https://github.com/pravatsahu05/Instagram-Performance-Analytics</u></b></font></a>", body_style)
+        ]
+    ]
+    end_links_tbl = Table(end_links_data, colWidths=[252, 252])
+    end_links_tbl.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#FFF1F2")),
+        ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#FDA4AF")),
+        ("INNERGRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#FECDD3")),
+        ("PADDING", (0, 0), (-1, -1), 6),
+        ("VALIGN", (0, 0), (-1, -1), "MIDDLE")
+    ]))
+    story.append(end_links_tbl)
+    story.append(Spacer(1, 8))
+
     story.append(Paragraph("<b>Report Sign-off:</b> Project successfully prepared and validated for Zen Capstone Live Evaluation.", ParagraphStyle("Signoff", fontName="Helvetica-Oblique", fontSize=8.5, leading=11, textColor=colors.HexColor("#64748B"), alignment=2)))
 
     # Build PDF with NumberedCanvas

@@ -416,6 +416,8 @@ def main():
                             <b style="color: #FFFFFF;">SUGAR Cosmetics</b> • #RuleTheWorld ✨<br/>
                             High-performance makeup crafted for bold Indian beauty • 100% Cruelty-Free 🐰<br/>
                             <a href="https://sugarcosmetics.com" target="_blank" style="color: #0095F6; text-decoration: none; font-weight: 600;">🔗 sugarcosmetics.com</a>
+                            <span style="color: #64748B; margin: 0 8px;">|</span>
+                            <a href="https://github.com/pravatsahu05/Instagram-Performance-Analytics" target="_blank" style="color: #0095F6; text-decoration: none; font-weight: 600;">📂 GitHub Repository</a>
                         </div>
                     </div>
                 </div>

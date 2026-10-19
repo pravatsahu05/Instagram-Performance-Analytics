@@ -1,10 +1,13 @@
 # 💄 Instagram Performance Analytics for Sugar Cosmetics
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://instagram-performance-analytics-pravatsahu05.streamlit.app/)
 [![Python 3.12](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Plotly](https://img.shields.io/badge/Plotly-5.18-brightgreen.svg)](https://plotly.com/)
 [![ReportLab](https://img.shields.io/badge/PDF_Engine-ReportLab-red.svg)](https://www.reportlab.com/)
+
+> 🚀 **Live Interactive Web Application:** [https://instagram-performance-analytics-pravatsahu05.streamlit.app/](https://instagram-performance-analytics-pravatsahu05.streamlit.app/)  
+> 💻 **GitHub Source Code Repository:** [https://github.com/pravatsahu05/Instagram-Performance-Analytics](https://github.com/pravatsahu05/Instagram-Performance-Analytics)
 
 An enterprise-grade social media intelligence, audience behavior modeling, and content optimization framework built for **Sugar Cosmetics**. This project replaces legacy Tableau dashboards with a high-performance **Streamlit Cloud Web Application** paired with an automated **Publication-Quality Executive PDF Report**.
 
@@ -93,7 +96,7 @@ The analyzed dataset represents **50,000 verified post records** published over 
 | **Task 6** | **Day of Week Analysis** | Identified **Wednesday (18.63% ER)** and **Saturday (18.60% ER)** as statistical peak interaction windows. Sunday exhibits mild audience fatigue (18.42%). |
 | **Task 7** | **6-Stage Conversion Funnel** | Mapped sequence: `Impressions (1.28B) → Reach (987M) → Likes (147.7M) → Comments (18.5M) → Shares (8.1M) → Saves (8.86M)`. Quantified step-by-step conversion drop-offs. |
 | **Task 8** | **Hashtag Matrix** | `#CrueltyFree` generated the highest volume (20,197 posts) and top ER (18.65%), proving audience affinity for clean, ethical cosmetic positioning. |
-| **Task 9** | **Interactive Web Application** | Replaced static Tableau dashboards with an interactive **Streamlit Cloud Web Application** featuring responsive glassmorphic cards, global cross-filtering, and CSV/PDF export. |
+| **Task 9** | **Interactive Web Application** | Replaced static Tableau dashboards with an interactive [Streamlit Cloud Web Application](https://instagram-performance-analytics-pravatsahu05.streamlit.app/) featuring responsive glassmorphic cards, global cross-filtering, and CSV/PDF export. |
 | **Task 10** | **Strategic Recommendations** | Synthesized a 5-pillar strategic roadmap and 90-day execution framework targeting content mix, scheduling, and profile-to-follower conversion. |
 
 ---
@@ -191,10 +194,10 @@ python generate_pdf_report.py
 The compiled PDF report will be generated at:
 `outputs/Sugar_Cosmetics_Instagram_Performance_Analytics_Report.pdf`
 
-### 3. Deploy to Streamlit Cloud in 3 Steps
-1. Push this repository to your **GitHub** account.
-2. Sign in to [share.streamlit.io](https://share.streamlit.io/).
-3. Select your repository, set branch to `main`, main file to `app.py`, and click **Deploy**!
+### 3. Streamlit Cloud Live Deployment
+- **Live Production App URL:** [https://instagram-performance-analytics-pravatsahu05.streamlit.app/](https://instagram-performance-analytics-pravatsahu05.streamlit.app/)
+- **Repository:** [https://github.com/pravatsahu05/Instagram-Performance-Analytics](https://github.com/pravatsahu05/Instagram-Performance-Analytics)
+- **Deployment Branch:** `main` | **Main File:** `app.py`
 
 ---
 
