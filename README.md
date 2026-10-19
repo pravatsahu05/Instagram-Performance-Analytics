@@ -169,8 +169,8 @@ To adhere strictly to Capstone guidelines, four formal statistical hypothesis te
 ### 1. Run Locally
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/sugar-cosmetics-instagram-analytics.git
-cd sugar-cosmetics-instagram-analytics
+git clone https://github.com/pravatsahu05/Instagram-Performance-Analytics.git
+cd Instagram-Performance-Analytics
 
 # Create and activate virtual environment
 python -m venv venv

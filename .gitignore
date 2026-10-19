@@ -8,8 +8,15 @@ venv/
 env/
 .env
 
-# Temp files
+# Temp and office files
 *.tmp
 outputs/charts_temp/
+*.docx
+*.xlsx
+.DS_Store
+Thumbs.db
+
+# IDE configurations
 .vscode/
 .idea/
+
